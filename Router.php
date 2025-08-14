@@ -21,7 +21,12 @@ class Router
     {
         
         // Proteger Rutas...
+        // Router.php
+
+    // Iniciar sesión solo si no está activa
+    if(!isset($_SESSION)) {
         session_start();
+    }
 
         // Arreglo de rutas protegidas...
         // $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
