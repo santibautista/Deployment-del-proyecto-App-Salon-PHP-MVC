@@ -1,0 +1,118 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+@use 'sass:color';
+
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.button{
+    color: v.$blanco;
+    font-weight: v.$bold;
+    font-size: 2rem;
+    padding: 1.5rem 2.5rem;
+}
+.button:hover{
+    background-color: color.adjust( v.$negro, $lightness: -10%);
+}
+
+.cita{
+    h2{
+        margin-top: 1rem;
+    }
+    #paso-2{
+        input:disabled{
+            background-color: color.adjust(v.$negro, $lightness:20%);
+        }
+    }
+
+    .seccion{
+        display: none;
+
+        &.mostrar{
+            display: block;
+        }
+        &.ocultar{
+            display: none;
+        }
+    }
+}
+
+.paginacion{
+    display: flex;
+    justify-content: space-around;
+
+    .ocultar{
+        visibility: hidden;
+    }
+}
+
+.listado-servicios{
+    @include m.tablet{
+        @include m.grid(2, 2rem);
+    } 
+
+    .servicio{
+        background-color: v.$azul;
+        padding: 2rem 1rem;
+        border-radius: 2rem;
+        text-align: center;
+        transition-property: transform;
+        transition-duration: 300ms;
+        margin-bottom: 1rem;
+
+        &.seleccionado{
+            background-color: v.$blanco;
+            p{
+                color: v.$azul;
+            }
+        }
+
+        p{
+            margin: 0;
+        }
+        .nombre-servicio{
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .servicio:hover{
+        transform: scale(1.1);
+    }
+}
+
+
+.contenido-resumen{
+    .servicio-resumen{
+        border-bottom: 1px solid v.$gris;
+        .precio-servicio-resumen{
+            span{
+                color: v.$azul;
+                font-weight: v.$bold;
+            }
+        }
+    }
+
+    .titulo-resumen{
+            margin-top: 2rem;
+    }
+
+    .cita-resumen{
+        span{
+                color: v.$azul;
+                font-weight: v.$bold;
+            }
+        .div-boton{
+            display: flex;
+            justify-content: end;
+            .boton{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

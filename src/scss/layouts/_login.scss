@@ -1,0 +1,45 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+
+.nombre-pagina{
+    margin: 3rem 0;
+}
+
+.descripcion-pagina{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.campo{
+    display: flex;
+    margin: 2rem;
+    justify-content: center;
+
+    label{
+        flex: 0 0 10rem;
+        padding: 1rem 0 ;
+    }
+
+    input{
+        flex: 1;
+        background-color: v.$blanco;
+        color: v.$negro;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+}
+
+.boton{
+    border-radius: 1rem;
+    @include m.boton(v.$azul, v.$blanco);
+}
+
+.acciones{
+    display:flex;
+    justify-content: space-between;
+    margin-right: 2rem;
+    a{
+        color: v.$blanco;
+    }
+}
