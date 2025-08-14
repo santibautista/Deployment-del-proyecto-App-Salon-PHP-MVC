@@ -14,7 +14,6 @@ class LoginController{
             $usuario= Usuario::where("email", $auth->email);
             if($usuario){
                 if($usuario->comprobarPasswordAndVerificado($auth->password)){
-                    session_start();
                     $_SESSION['id'] = $usuario->id;
                     $_SESSION['nombre'] =$usuario->nombre . " " . $usuario->apellido;
                     $_SESSION['email'] = $usuario->email;
@@ -41,7 +40,6 @@ class LoginController{
     }
 
     public static function logout(){
-        session_start();
         $_SESSION= [];
         header('Location: /');
     }
